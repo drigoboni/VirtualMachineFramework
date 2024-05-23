@@ -84,7 +84,7 @@ The root namespace uses "Virtual Machine" instead of "Vending Machine," making t
 
 1. **Clone the repository**:
     ```sh
-    git clone <GIT REPOSITORY URL>
+    git clone https://github.com/drigoboni/VirtualMachineFramework.git
     cd virtual-vending-machine
     ```
 
