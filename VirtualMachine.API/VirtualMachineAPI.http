@@ -1,0 +1,6 @@
+@VirtualMachineAPI_HostAddress = http://localhost:5120
+
+GET {{VirtualMachineAPI_HostAddress}}/VendingMachineApi/
+Accept: application/json
+
+###

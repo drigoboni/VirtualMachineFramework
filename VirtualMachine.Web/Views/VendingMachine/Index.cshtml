@@ -1,0 +1,37 @@
+﻿@model VirtualMachine.Web.Models.VendingMachineViewModel
+
+@{
+    ViewData["Title"] = "Vending Machine";
+}
+<div class="row mt-4">
+    @await Html.PartialAsync("_AddMoney")
+</div>
+<div class="row mt-4">
+    @foreach (var product in Model.Products)
+    {
+        <div class="col-md-3">
+            <div class="card mb-3 shadow-sm text-center">
+                <div class="card-header">
+                    <h5 class="card-title mt-1">@product.Name</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Price: $@product.Price</p>
+                    <p class="card-text">Quantity: @product.Quantity</p>
+                    <form asp-action="Purchase" method="post">
+                        <input type="hidden" name="productId" value="@product.Id" />
+                        <div class="d-grid">
+                            @if (product.Quantity <= 0)
+                            {
+                                <span class="btn btn-outline-danger disabled">Out of Stock</span>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-success" @(product.Price > Model.CurrentBalance ? "disabled" : "")>Purchase</button>
+                            }
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>

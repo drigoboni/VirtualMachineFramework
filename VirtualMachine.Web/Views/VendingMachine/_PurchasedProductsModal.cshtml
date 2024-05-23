@@ -1,0 +1,40 @@
+﻿<div class="modal fade" id="purchasedProductsModal" tabindex="-1" aria-labelledby="purchasedProductsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="purchasedProductsModalLabel">Purchased Products</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <span><strong>Product</strong></span>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <span><strong>Qty.</strong></span>
+                            </div>
+                        </div>
+                    </li>
+                    @foreach (var product in Model.PurchasedProducts)
+                    {
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <span>@product.Name</span>
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <span>@product.Quantity</span>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

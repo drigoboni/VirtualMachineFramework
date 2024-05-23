@@ -1,0 +1,24 @@
+﻿<div class="col-md-8">
+    <h5>Please insert your virtual money:</h5>
+    <form asp-action="AddMoney" method="post" class="form-inline">
+        <div class="form-group pt-2">
+            <button type="submit" name="amount" value="0.05" class="btn btn-warning rounded-circle coin shadow">5c</button>
+            <button type="submit" name="amount" value="0.10" class="btn btn-warning rounded-circle coin shadow">10c</button>
+            <button type="submit" name="amount" value="0.20" class="btn btn-warning rounded-circle coin shadow">20c</button>
+            <button type="submit" name="amount" value="0.50" class="btn btn-warning rounded-circle coin shadow">50c</button>
+            <button type="submit" name="amount" value="1.00" class="btn btn-warning rounded-circle coin shadow">$1</button>
+            <button type="submit" name="amount" value="2.00" class="btn btn-warning rounded-circle coin shadow">$2</button>
+        </div>
+    </form>
+</div>
+<div class="col-md-4">
+    @if (Model.PurchasedProducts?.Count > 0)
+    {
+        <div class="text-end">
+            <button type="button" class="btn btn-primary align-text-bottom" data-bs-toggle="modal" data-bs-target="#purchasedProductsModal">
+                View Purchased Products
+            </button>
+        </div>
+        @await Html.PartialAsync("_PurchasedProductsModal")
+    }
+</div>
